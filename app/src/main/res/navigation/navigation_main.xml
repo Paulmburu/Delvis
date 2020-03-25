@@ -9,5 +9,18 @@
         android:id="@+id/loginFragment"
         android:name="com.polotechnologies.delvis.ui.login.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_introHostFragment"
+            app:destination="@id/introHostFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/introHostFragment"
+        android:name="com.polotechnologies.delvis.uiHosts.IntroHostFragment"
+        android:label="fragment_intro_host"
+        tools:layout="@layout/fragment_intro_host" >
+        <action
+            android:id="@+id/action_introHostFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>

@@ -9,7 +9,11 @@
         android:id="@+id/firstIntroFragment"
         android:name="com.polotechnologies.delvis.ui.intros.FirstIntroFragment"
         android:label="fragment_first_intro"
-        tools:layout="@layout/fragment_first_intro" />
+        tools:layout="@layout/fragment_first_intro" >
+        <action
+            android:id="@+id/action_firstIntroFragment_to_secondIntroFragment"
+            app:destination="@id/secondIntroFragment" />
+    </fragment>
     <fragment
         android:id="@+id/secondIntroFragment"
         android:name="com.polotechnologies.delvis.ui.intros.SecondIntroFragment"

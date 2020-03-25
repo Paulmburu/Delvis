@@ -3,4 +3,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="intro_1_text">Order Groceries, Drinks and Products from your nearest Retail-Shops, Grocery and Supermarket</string>
+    <string name="btn_text_next">Next</string>
+    <string name="btn_text_finish">Finish</string>
+    <string name="intro_2_text">We will deliver your Goods straight to your destination/home.</string>
 </resources>
