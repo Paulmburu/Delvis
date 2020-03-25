@@ -7,4 +7,9 @@
     <string name="btn_text_next">Next</string>
     <string name="btn_text_finish">Finish</string>
     <string name="intro_2_text">We will deliver your Goods straight to your destination/home.</string>
+    <string name="hint_email_address">Email Address</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_text_login">Login</string>
+    <string name="btn_text_sign_up">Sign Up</string>
+    <string name="hint_phone_number">Phone Number</string>
 </resources>
