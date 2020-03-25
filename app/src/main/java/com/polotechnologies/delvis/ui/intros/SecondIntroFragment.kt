@@ -11,19 +11,22 @@ import com.polotechnologies.delvis.R
 import com.polotechnologies.delvis.databinding.FragmentSecondIntroBinding
 
 /**
- * A simple [Fragment] subclass.
+ * A [Fragment] to introduce the user to the app.
  */
 class SecondIntroFragment : Fragment() {
 
-    private lateinit var mBinding:FragmentSecondIntroBinding
+    private lateinit var mBinding: FragmentSecondIntroBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_second_intro, container, false)
+        mBinding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_second_intro, container, false)
+
         mBinding.btnFinish.setOnClickListener {
-            activity?.findNavController(R.id.nav_host_main)?.navigate(R.id.action_introHostFragment_to_loginFragment)
+            activity?.findNavController(R.id.nav_host_main)
+                ?.navigate(R.id.action_introHostFragment_to_loginFragment)
         }
         return mBinding.root
     }
