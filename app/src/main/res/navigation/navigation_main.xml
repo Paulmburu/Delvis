@@ -40,8 +40,8 @@
             app:destination="@id/loginFragment"
             app:popUpTo="@id/loginFragment" />
         <action
-            android:id="@+id/action_signUpFragment_to_homeHostFragment"
-            app:destination="@id/homeHostFragment" />
+            android:id="@+id/action_signUpFragment_to_locationSetUpFragment"
+            app:destination="@id/locationSetUpFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeHostFragment"
@@ -52,4 +52,9 @@
             android:id="@+id/action_homeHostFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/locationSetUpFragment"
+        android:name="com.polotechnologies.delvis.ui.location.LocationSetUpFragment"
+        android:label="LocationSetUpFragment"
+        tools:layout="@layout/fragment_location_set_up"/>
 </navigation>

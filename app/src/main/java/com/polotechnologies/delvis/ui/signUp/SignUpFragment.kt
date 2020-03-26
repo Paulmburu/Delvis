@@ -32,6 +32,7 @@ class SignUpFragment : Fragment() {
     private fun setOnClickListeners() {
         mBinding.btnSignUp.setOnClickListener {
             Toast.makeText(context, "Signing Up...", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_signUpFragment_to_locationSetUpFragment)
         }
 
         mBinding.btnLoginOption.setOnClickListener {
