@@ -15,4 +15,5 @@
     <string name="shared_pref_intro_displayed">intro_displayed</string>
     <string name="btn_set_location">Set Location</string>
     <string name="text_set_location_information">Lets get started by setting a delivery address</string>
+
 </resources>

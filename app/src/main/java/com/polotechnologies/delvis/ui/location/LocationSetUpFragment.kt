@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 import com.polotechnologies.delvis.R
@@ -41,7 +42,9 @@ class LocationSetUpFragment : Fragment() {
             dialogBuilder.setItems(pictureDialogItems) { _, which ->
                 when (which) {
                     0 -> Toast.makeText(context, "Current Location", Toast.LENGTH_SHORT).show()
-                    1 -> Toast.makeText(context, "Add an Address", Toast.LENGTH_SHORT).show()
+                    1 -> {
+                        findNavController().navigate(R.id.action_locationSetUpFragment_to_mapFragment)
+                    }
                 }
             }
 

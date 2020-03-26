@@ -56,5 +56,14 @@
         android:id="@+id/locationSetUpFragment"
         android:name="com.polotechnologies.delvis.ui.location.LocationSetUpFragment"
         android:label="LocationSetUpFragment"
-        tools:layout="@layout/fragment_location_set_up"/>
+        tools:layout="@layout/fragment_location_set_up">
+        <action
+            android:id="@+id/action_locationSetUpFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.polotechnologies.delvis.ui.location.googleMapFragment.MapFragment"
+        android:label="MapFragment"
+        tools:layout="@layout/fragment_map"/>
 </navigation>
