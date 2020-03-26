@@ -12,10 +12,14 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_introHostFragment"
-            app:destination="@id/introHostFragment" />
+            app:destination="@id/introHostFragment"
+            app:popUpTo="@id/loginFragment" />
         <action
             android:id="@+id/action_loginFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeHostFragment"
+            app:destination="@id/homeHostFragment" />
     </fragment>
     <fragment
         android:id="@+id/introHostFragment"
@@ -33,6 +37,19 @@
         tools:layout="@layout/fragment_sign_up" >
         <action
             android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment" />
+        <action
+            android:id="@+id/action_signUpFragment_to_homeHostFragment"
+            app:destination="@id/homeHostFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeHostFragment"
+        android:name="com.polotechnologies.delvis.uiHosts.HomeHostFragment"
+        android:label="fragment_home_host"
+        tools:layout="@layout/fragment_home_host" >
+        <action
+            android:id="@+id/action_homeHostFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
 </navigation>

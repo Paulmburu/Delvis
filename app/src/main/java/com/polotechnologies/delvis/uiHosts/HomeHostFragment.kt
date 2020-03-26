@@ -8,20 +8,20 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 
 import com.polotechnologies.delvis.R
-import com.polotechnologies.delvis.databinding.FragmentIntroHostBinding
+import com.polotechnologies.delvis.databinding.FragmentHomeHostBinding
 
 /**
- * A [Fragment] to host intro fragments.
+ * A simple [Fragment] subclass.
  */
-class IntroHostFragment : Fragment() {
+class HomeHostFragment : Fragment() {
 
-    private lateinit var mBinding:FragmentIntroHostBinding
+    private lateinit var mBinding:FragmentHomeHostBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_intro_host, container, false)
+        mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_home_host, container, false)
         return mBinding.root
     }
 
