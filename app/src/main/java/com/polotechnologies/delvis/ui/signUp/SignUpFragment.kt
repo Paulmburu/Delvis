@@ -70,8 +70,11 @@ class SignUpFragment : Fragment() {
         }
 
     private fun saveUserDetails() {
-        firestore.collection("users")
-            .add(mViewModel.user.value!!)
+        val user = mViewModel.user.value!!
+        user.user_id=mAuth.currentUser!!.uid
+
+        firestore.collection("users").document(mAuth.currentUser!!.uid)
+            .set(user)
     }
 }
 

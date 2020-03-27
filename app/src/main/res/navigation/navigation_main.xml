@@ -67,5 +67,11 @@
         android:id="@+id/mapFragment"
         android:name="com.polotechnologies.delvis.ui.location.googleMapFragment.MapFragment"
         android:label="MapFragment"
-        tools:layout="@layout/fragment_map"/>
+        tools:layout="@layout/fragment_map">
+        <action
+            android:id="@+id/action_mapFragment_to_homeHostFragment"
+            app:destination="@id/homeHostFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

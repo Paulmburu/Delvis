@@ -1,9 +1,9 @@
 package com.polotechnologies.delvis.dataModels
 
 data class User(
-    val user_id: String = "",
-    val user_email: String = "",
-    val user_password: String = "",
-    val user_phone_number: String = "",
-    val user_location_address : String = ""
+    var user_id: String = "",
+    var user_email: String = "",
+    var user_password: String = "",
+    var user_phone_number: String = "",
+    var user_location_address : String = ""
 )

@@ -38,7 +38,7 @@ class LoginFragment : Fragment() {
         if(!isIntroDisplayed()){
             findNavController().navigate(R.id.action_loginFragment_to_introHostFragment)
         }
-
+        
         return mBinding.root
     }
 
