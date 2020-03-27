@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "672369814633",
+    "firebase_url": "https://delvis-b254d.firebaseio.com",
+    "project_id": "delvis-b254d",
+    "storage_bucket": "delvis-b254d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:672369814633:android:67b8884b77a1fccd2b86f8",
+        "android_client_info": {
+          "package_name": "com.polotechnologies.delvis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "672369814633-2qgc9t2rdlb43f3ik711a645pp90a2pl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.polotechnologies.delvis",
+            "certificate_hash": "feb3dd0728b492bea879bf361f1c97d0c17f9724"
+          }
+        },
+        {
+          "client_id": "672369814633-502haccb306pfflh3a11636qj7cu5e4h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUjfClkYDgx-QNBDVvcxgKOT3HK-q7WjI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "672369814633-502haccb306pfflh3a11636qj7cu5e4h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

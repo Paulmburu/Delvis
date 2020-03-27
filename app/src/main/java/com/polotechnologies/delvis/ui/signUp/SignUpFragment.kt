@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.polotechnologies.delvis.R
 import com.polotechnologies.delvis.databinding.FragmentSignUpBinding
 
@@ -17,12 +20,20 @@ import com.polotechnologies.delvis.databinding.FragmentSignUpBinding
 class SignUpFragment : Fragment() {
 
     private lateinit var mBinding: FragmentSignUpBinding
+    private lateinit var mViewModel: SignUpViewModel
+    private lateinit var mAuth: FirebaseAuth
+    private lateinit var firestore: FirebaseFirestore
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_sign_up, container, false)
+        mAuth = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
+
+        val factory = SignUpViewModelFactory(mAuth, mBinding)
+        mViewModel = ViewModelProvider(this, factory)[SignUpViewModel::class.java]
 
         setOnClickListeners()
 
@@ -31,8 +42,10 @@ class SignUpFragment : Fragment() {
 
     private fun setOnClickListeners() {
         mBinding.btnSignUp.setOnClickListener {
-            Toast.makeText(context, "Signing Up...", Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_signUpFragment_to_locationSetUpFragment)
+            if(mViewModel.isUserDetailsValid()){
+                signUpUser()
+            }
+
         }
 
         mBinding.btnLoginOption.setOnClickListener {
@@ -41,4 +54,24 @@ class SignUpFragment : Fragment() {
 
     }
 
+    private fun signUpUser() {
+        mBinding.btnSignUp.isEnabled = false
+        mAuth.createUserWithEmailAndPassword(mViewModel.user.value!!.user_email, mViewModel.user.value!!.user_password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(context, "Sign Up Successful", Toast.LENGTH_SHORT).show()
+                    saveUserDetails()
+                    findNavController().navigate(R.id.action_signUpFragment_to_locationSetUpFragment)
+                }
+            }.addOnFailureListener {exception ->
+                Toast.makeText(context, "Failed to Sign Up: ${exception.localizedMessage}", Toast.LENGTH_SHORT).show()
+
+            }
+        }
+
+    private fun saveUserDetails() {
+        firestore.collection("users")
+            .add(mViewModel.user.value!!)
+    }
 }
+

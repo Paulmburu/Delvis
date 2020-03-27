@@ -2,6 +2,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'androidx.navigation.safeargs'
 
 android {
     compileSdkVersion 29
@@ -60,5 +62,16 @@ dependencies {
     //Google Maps
     implementation "com.google.android.gms:play-services-maps:$version_google_play_maps"
     implementation "com.google.android.libraries.places:places:$version_gooogle_places"
+
+    //Firebase Analytics
+    implementation "com.google.firebase:firebase-analytics:17.2.3"
+
+    //Firebase Authentication
+    implementation "com.google.firebase:firebase-auth:19.3.0"
+
+    //Firebase Fire-store
+    implementation 'com.google.firebase:firebase-firestore-ktx:21.4.1'
+
+
 
 }
