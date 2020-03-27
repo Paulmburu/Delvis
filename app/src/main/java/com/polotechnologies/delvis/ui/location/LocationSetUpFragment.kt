@@ -73,7 +73,7 @@ class LocationSetUpFragment : Fragment() {
             listOf(Place.Field.ID, Place.Field.NAME)
 
         val intent =
-            Autocomplete.IntentBuilder(AutocompleteActivityMode.FULLSCREEN, fields).build(context!!)
+            Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY, fields).build(context!!)
         startActivityForResult(intent, AUTOCOMPLETE_REQUEST_CODE)
 
     }

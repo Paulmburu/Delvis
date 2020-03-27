@@ -54,6 +54,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun loginUser() {
+        mBinding.btnLogin.isEnabled = false
         mAuth.signInWithEmailAndPassword(mViewModel.user.value!!.user_email, mViewModel.user.value!!.user_password)
             .addOnCompleteListener{task->
                 if(task.isSuccessful){
