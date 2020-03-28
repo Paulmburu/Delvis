@@ -71,6 +71,7 @@ dependencies {
 
     //Firebase Fire-store
     implementation 'com.google.firebase:firebase-firestore-ktx:21.4.1'
+    implementation 'com.android.support:cardview-v7:28.0.0'
 
 
 }

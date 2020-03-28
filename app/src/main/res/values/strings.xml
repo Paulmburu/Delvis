@@ -17,5 +17,14 @@
     <string name="text_set_location_information">Lets get started by setting a delivery address</string>
     <string name="menu_search">Search Address</string>
     <string name="search_hint">Location Address</string>
+    <string name="shared_pref_location_set">delivery-location-set</string>
+    <string name="menu_products">Products</string>
+    <string name="menu_notifications">Notifications</string>
+    <string name="menu_cart">Cart</string>
+    <string name="category_supermarket">Supermarket</string>
+    <string name="category_pharmacy">Pharmacy</string>
+    <string name="category_drinks">Drinks</string>
+    <string name="category_groceries">Groceries</string>
+    <string name="menu_sign_out">Sign Out</string>
 
 </resources>
