@@ -16,17 +16,12 @@
             android:id="@+id/card_shopping"
             android:layout_width="0dp"
             android:layout_height="200dp"
-            android:layout_marginEnd="8dp"
-            android:checkable="true"
-            android:clickable="true"
-            android:focusable="true"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp"
-            app:cardPreventCornerOverlap="true"
-            app:cardUseCompatPadding="true"
+            android:layout_marginEnd="4dp"
+            style="@style/Widget.Delvis.ProductCard"
             app:layout_constraintEnd_toStartOf="@+id/card_pharmacy"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            >
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -61,17 +56,12 @@
             android:id="@+id/card_pharmacy"
             android:layout_width="0dp"
             android:layout_height="200dp"
-            android:layout_marginStart="8dp"
-            android:checkable="true"
-            android:clickable="true"
-            android:focusable="true"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp"
-            app:cardPreventCornerOverlap="true"
-            app:cardUseCompatPadding="true"
+            android:layout_marginStart="4dp"
+            style="@style/Widget.Delvis.ProductCard"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/card_shopping"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            >
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -106,14 +96,8 @@
             android:id="@+id/card_drinks"
             android:layout_width="0dp"
             android:layout_height="200dp"
-            android:layout_marginEnd="8dp"
-            android:checkable="true"
-            android:clickable="true"
-            android:focusable="true"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp"
-            app:cardPreventCornerOverlap="true"
-            app:cardUseCompatPadding="true"
+            android:layout_marginEnd="4dp"
+            style="@style/Widget.Delvis.ProductCard"
             app:layout_constraintEnd_toStartOf="@+id/card_groceries"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/card_shopping">
@@ -151,17 +135,12 @@
             android:id="@+id/card_groceries"
             android:layout_width="0dp"
             android:layout_height="200dp"
-            android:layout_marginStart="8dp"
-            android:checkable="true"
-            android:clickable="true"
-            android:focusable="true"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp"
-            app:cardPreventCornerOverlap="true"
-            app:cardUseCompatPadding="true"
+            android:layout_marginStart="4dp"
+            style="@style/Widget.Delvis.ProductCard"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/card_drinks"
-            app:layout_constraintTop_toBottomOf="@+id/card_pharmacy">
+            app:layout_constraintTop_toBottomOf="@+id/card_pharmacy"
+            >
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"

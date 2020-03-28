@@ -38,8 +38,12 @@ class HomeHostFragment : Fragment(), Toolbar.OnMenuItemClickListener {
     }
 
     private fun setUpBottomNav() {
-        val navController = childFragmentManager.findFragmentById(R.id.nav_host_home)
-        mBinding.bottomNavHome.setupWithNavController(navController = navController!!.findNavController())
+        val navHostFragment = childFragmentManager.findFragmentById(R.id.nav_host_home)
+        mBinding.bottomNavHome.setupWithNavController(navController = navHostFragment!!.findNavController())
+
+        navHostFragment.findNavController().addOnDestinationChangedListener { _, destination, _ ->
+            mBinding.toolbarHome.title = destination.label
+        }
     }
 
     override fun onMenuItemClick(item: MenuItem?): Boolean {

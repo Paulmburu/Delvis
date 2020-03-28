@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.getColor
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -29,8 +30,34 @@ class HomeFragment : Fragment() {
             activity!!.findNavController(R.id.nav_host_main).navigate(R.id.action_homeHostFragment_to_locationSetUpFragment)
         }
 
+        setClickListeners()
+
         return mBinding.root
     }
+
+    private fun setClickListeners() {
+        mBinding.cardShopping.setOnClickListener {cardView->
+            setCardAttributes(cardView)
+
+        }
+        mBinding.cardPharmacy.setOnClickListener {cardView->
+            setCardAttributes(cardView)
+
+        }
+        mBinding.cardDrinks.setOnClickListener {cardView->
+            setCardAttributes(cardView)
+
+        }
+        mBinding.cardGroceries.setOnClickListener {cardView->
+            setCardAttributes(cardView)
+
+        }
+    }
+
+    private fun setCardAttributes(cardView: View) {
+        cardView.elevation = 10F
+    }
+
 
     private fun isLocationSet(): Boolean {
         val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return false

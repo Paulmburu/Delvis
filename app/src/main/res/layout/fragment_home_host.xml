@@ -20,7 +20,10 @@
                 android:id="@+id/toolbar_home"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:menu="@menu/menu_home" />
+                app:menu="@menu/menu_home"
+                android:theme="@style/AppTheme.DarkActionBar"
+                app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light"
+                tools:title="Products"/>
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -30,7 +33,7 @@
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:defaultNavHost="true"
+            app:defaultNavHost="false"
             app:layout_constraintBottom_toTopOf="@+id/bottom_nav_home"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
