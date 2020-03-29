@@ -3,7 +3,7 @@
 Home Delivery Shopping App
 
 # Introduction
-With the current Pandemic of COronaVIrus people tend to be fearfull to walk around to buy shopping. [Delvis] is an Android app using [Firebase](https://firebase.google.com) to store user interaction, inventory, user authentication and app analytics.The app is beeing built using MVVM architectural 
+With the current Pandemic of CoronaVirus people tend to be fearfull to walk around to buy shopping. [Delvis] is an Android app using [Firebase](https://firebase.google.com) to store user interaction, inventory, user authentication and app analytics.The app is beeing built using MVVM architectural 
 pattern and [Android Architecture Components](https://developer.android.com/topic/libraries/architecture).
 
 # Development Environment
