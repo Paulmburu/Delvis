@@ -6,15 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.getColor
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.polotechnologies.delvis.R
 import com.polotechnologies.delvis.databinding.FragmentHomeBinding
+import com.polotechnologies.delvis.uiHosts.HomeHostFragmentDirections
 
 /**
- * A [Fragment] to display home.
+ * A [Fragment] to display Available Products Option.
  */
 class HomeFragment : Fragment() {
 
@@ -36,26 +35,27 @@ class HomeFragment : Fragment() {
     }
 
     private fun setClickListeners() {
-        mBinding.cardShopping.setOnClickListener {cardView->
-            setCardAttributes(cardView)
-
+        mBinding.cardShopping.setOnClickListener {
+            navigateToShop("supermarket")
         }
-        mBinding.cardPharmacy.setOnClickListener {cardView->
-            setCardAttributes(cardView)
-
+        mBinding.cardPharmacy.setOnClickListener {
+            navigateToShop("pharmacy")
         }
-        mBinding.cardDrinks.setOnClickListener {cardView->
-            setCardAttributes(cardView)
-
+        mBinding.cardDrinks.setOnClickListener {
+            navigateToShop("drinks")
         }
-        mBinding.cardGroceries.setOnClickListener {cardView->
-            setCardAttributes(cardView)
+        mBinding.cardGroceries.setOnClickListener {
+            navigateToShop("groceries")
+        }
 
+        mBinding.cardGas.setOnClickListener {
+            navigateToShop("gas")
         }
     }
 
-    private fun setCardAttributes(cardView: View) {
-        cardView.elevation = 10F
+    private fun navigateToShop(category: String) {
+        val action = HomeHostFragmentDirections.actionHomeHostFragmentToShopFragment(category)
+        activity!!.findNavController(R.id.nav_host_main).navigate(action)
     }
 
 

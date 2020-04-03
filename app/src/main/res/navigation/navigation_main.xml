@@ -59,6 +59,11 @@
             android:id="@+id/action_homeHostFragment_to_locationSetUpFragment"
             app:destination="@id/locationSetUpFragment"
             app:popUpTo="@id/homeHostFragment" />
+        <action
+            android:id="@+id/action_homeHostFragment_to_shopFragment"
+            app:destination="@id/shopFragment"
+            app:enterAnim="@anim/nav_enter_from_left"
+            app:popUpTo="@id/homeHostFragment" />
     </fragment>
     <fragment
         android:id="@+id/locationSetUpFragment"
@@ -79,5 +84,14 @@
             app:destination="@id/homeHostFragment"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/shopFragment"
+        android:name="com.polotechnologies.delvis.ui.shop.ShopFragment"
+        android:label="fragment_shop"
+        tools:layout="@layout/fragment_shop" >
+        <argument
+            android:name="category"
+            app:argType="string" />
     </fragment>
 </navigation>
