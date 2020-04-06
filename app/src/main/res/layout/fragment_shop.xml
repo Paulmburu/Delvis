@@ -26,20 +26,123 @@
                 app:contentScrim="?attr/colorPrimary"
                 app:expandedTitleGravity="top"
                 app:expandedTitleTextAppearance="@android:color/transparent"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+                app:layout_scrollFlags="scroll|snap"
+                android:background="@android:color/white">
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/image_illustration"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:scaleType="centerCrop"
-                    app:layout_collapseMode="parallax"
-                    app:layout_collapseParallaxMultiplier="0.5"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@drawable/liquor_by_chettersnap" />
+                    android:layout_height="wrap_content">
 
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/image_illustration"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:scaleType="centerCrop"
+                        app:layout_collapseMode="parallax"
+                        app:layout_collapseParallaxMultiplier="0.5"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:srcCompat="@drawable/illustration_liquor_by_chettersnap" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="100dp"
+                        android:layout_marginEnd="16dp"
+                        style="@style/Widget.Delvis.ShopCardDetails"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/text_shop_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="Kiokos Wines and Spirit"
+                                android:textColor="@android:color/black"
+                                android:textSize="20sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/image_location_delivery"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginEnd="16dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.5"
+                                app:layout_constraintStart_toEndOf="@+id/image_satisfactory"
+                                app:layout_constraintTop_toBottomOf="@+id/text_shop_name"
+                                app:srcCompat="@drawable/ic_add_location" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2.4Km"
+                                android:textColor="@android:color/black"
+                                app:layout_constraintEnd_toEndOf="@+id/image_location_delivery"
+                                app:layout_constraintStart_toStartOf="@+id/image_location_delivery"
+                                app:layout_constraintTop_toBottomOf="@+id/image_location_delivery" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/image_satisfactory"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                app:layout_constraintEnd_toStartOf="@+id/image_location_delivery"
+                                app:layout_constraintHorizontal_bias="0.5"
+                                app:layout_constraintStart_toEndOf="@+id/image_bike_cost"
+                                app:layout_constraintTop_toBottomOf="@+id/text_shop_name"
+                                app:srcCompat="@drawable/ic_thumb_up" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/appCompatTextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="98%"
+                                android:textColor="@android:color/black"
+                                app:layout_constraintEnd_toEndOf="@+id/image_satisfactory"
+                                app:layout_constraintStart_toStartOf="@+id/image_satisfactory"
+                                app:layout_constraintTop_toBottomOf="@+id/image_satisfactory" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/image_bike_cost"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="16dp"
+                                app:layout_constraintEnd_toStartOf="@+id/image_satisfactory"
+                                app:layout_constraintHorizontal_bias="0.5"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/text_shop_name"
+                                app:srcCompat="@drawable/ic_directions_bike" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Ksh 200.00"
+                                android:textColor="@android:color/black"
+                                app:layout_constraintEnd_toEndOf="@+id/image_bike_cost"
+                                app:layout_constraintStart_toStartOf="@+id/image_bike_cost"
+                                app:layout_constraintTop_toBottomOf="@+id/image_bike_cost" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </com.google.android.material.card.MaterialCardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <com.google.android.material.appbar.MaterialToolbar
                     android:id="@+id/tb_details"
@@ -49,6 +152,8 @@
                     app:popupTheme="@style/Theme.MaterialComponents.Light"
                     android:theme="@style/AppTheme.DarkActionBar"
                     app:navigationIcon="@drawable/ic_arrow_back" />
+
+
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
 
@@ -60,6 +165,14 @@
             android:clipToPadding="false"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
             tools:context=".ui.shop.ShopFragment">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_shop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_shop"
+                />
 
         </androidx.core.widget.NestedScrollView>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

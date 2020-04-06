@@ -62,7 +62,6 @@
         <action
             android:id="@+id/action_homeHostFragment_to_shopFragment"
             app:destination="@id/shopFragment"
-            app:enterAnim="@anim/nav_enter_from_left"
             app:popUpTo="@id/homeHostFragment" />
     </fragment>
     <fragment
@@ -92,6 +91,20 @@
         tools:layout="@layout/fragment_shop" >
         <argument
             android:name="category"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_shopFragment_to_productCategoryFragment"
+            app:destination="@id/productCategoryFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/shopFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productCategoryFragment"
+        android:name="com.polotechnologies.delvis.ui.shopProductsCategory.ProductCategoryFragment"
+        android:label="ProductCategoryFragment"
+        tools:layout="@layout/fragment_product_category">
+        <argument
+            android:name="selectedProductCategory"
             app:argType="string" />
     </fragment>
 </navigation>

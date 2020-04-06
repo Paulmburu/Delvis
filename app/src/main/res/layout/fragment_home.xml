@@ -15,6 +15,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_shopping"
             style="@style/Widget.Delvis.ProductCard"
+            android:layout_margin="8dp"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_marginEnd="4dp"
@@ -34,7 +35,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/supermarket" />
+                    app:srcCompat="@drawable/category_supermarket" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
@@ -54,6 +55,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_pharmacy"
             style="@style/Widget.Delvis.ProductCard"
+            android:layout_margin="8dp"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_marginStart="4dp"
@@ -73,7 +75,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/pharmacy" />
+                    app:srcCompat="@drawable/category_pharmacy" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
@@ -93,6 +95,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_drinks"
             style="@style/Widget.Delvis.ProductCard"
+            android:layout_margin="8dp"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_marginEnd="4dp"
@@ -112,7 +115,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/drinks" />
+                    app:srcCompat="@drawable/category_drinks" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
@@ -132,6 +135,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_groceries"
             style="@style/Widget.Delvis.ProductCard"
+            android:layout_margin="8dp"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_marginStart="4dp"
@@ -151,7 +155,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/groceries" />
+                    app:srcCompat="@drawable/category_groceries" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
@@ -173,8 +177,9 @@
             style="@style/Widget.Delvis.ProductCard"
             android:layout_width="0dp"
             android:layout_height="150dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/card_drinks"
+            app:layout_constraintStart_toStartOf="@+id/card_drinks"
             app:layout_constraintTop_toBottomOf="@+id/card_drinks">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -189,13 +194,13 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/gas" />
+                    app:srcCompat="@drawable/category_gas" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="@string/category_groceries"
+                    android:text="@string/category_gas"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     app:layout_constraintEnd_toEndOf="@+id/image_gas"
                     app:layout_constraintStart_toStartOf="@+id/image_gas"

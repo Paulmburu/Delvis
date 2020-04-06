@@ -6,7 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import com.bumptech.glide.Glide
 import com.polotechnologies.delvis.R
+import com.polotechnologies.delvis.dataModels.Shop
 import com.polotechnologies.delvis.databinding.FragmentShopBinding
 
 /**
@@ -15,7 +20,7 @@ import com.polotechnologies.delvis.databinding.FragmentShopBinding
 class ShopFragment : Fragment() {
 
     private lateinit var mBinding: FragmentShopBinding
-    private lateinit var selectedCategory: String
+    private lateinit var mViewModel: ShopViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -23,33 +28,55 @@ class ShopFragment : Fragment() {
         // Inflate the layout for this fragment
         mBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_shop, container, false)
 
-        setToolBarDetails()
+        val factory = ShopViewModelFactory()
+        mViewModel = ViewModelProvider(this,factory)[ShopViewModel::class.java]
+
+        setDisplayDetails()
+        setObservers()
         return mBinding.root
     }
-
-    private fun setToolBarDetails() {
+    private fun setDisplayDetails() {
         when(ShopFragmentArgs.fromBundle(arguments!!).category){
             "supermarket"->{
                 mBinding.collapseToolbarShop.title = "Shopping"
-                mBinding.imageIllustration.setImageResource(R.drawable.supermarket_hansonluu)
+                displayImage(R.drawable.illustration_supermarket_neoonbrand)
             }
             "pharmacy"->{
                 mBinding.collapseToolbarShop.title = "Pharmacy"
-                mBinding.imageIllustration.setImageResource(R.drawable.pharmacy_image)
+                displayImage(R.drawable.illustration_pharmacy_image)
             }
             "drinks"->{
                 mBinding.collapseToolbarShop.title = "Liquor Store"
-                mBinding.imageIllustration.setImageResource(R.drawable.liquor_by_chettersnap)
+                displayImage(R.drawable.illustration_liquor_by_chettersnap)
+                mBinding.recyclerShop.adapter = ShopRecyclerAdapter(mViewModel.drinkShop,
+                    ShopRecyclerAdapter.OnClickListener{shop->
+                        mViewModel.displaySelectedCategory(shop)
+                })
             }
             "groceries"->{
                 mBinding.collapseToolbarShop.title = "Groceries"
-                mBinding.imageIllustration.setImageResource(R.drawable.groceries_scottiewarman)
+                displayImage(R.drawable.illustration_groceries_scottiewarman)
             }
             "gas"->{
                 mBinding.collapseToolbarShop.title = "Gas"
-                mBinding.imageIllustration.setImageResource(R.drawable.gas_cylinders)
+                displayImage(R.drawable.illustration_gas_cylinders)
             }
         }
+    }
+
+    private fun setObservers() {
+        mViewModel.selectedShopCategory.observe(viewLifecycleOwner, Observer {shop->
+            val action = ShopFragmentDirections.actionShopFragmentToProductCategoryFragment(shop.shop_name)
+            activity!!.findNavController(R.id.nav_host_main).navigate(action)
+        })
+    }
+
+    private fun displayImage(imageDrawable: Int) {
+        Glide.with(this)
+            .load(imageDrawable)
+            .into(mBinding.imageIllustration)
+            .clearOnDetach()
+
     }
 
 
