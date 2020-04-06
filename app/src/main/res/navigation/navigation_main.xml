@@ -106,5 +106,18 @@
         <argument
             android:name="selectedProductCategory"
             app:argType="string" />
+        <action
+            android:id="@+id/action_productCategoryFragment_to_productListFragment"
+            app:destination="@id/productListFragment"
+            app:popUpTo="@id/productCategoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="com.polotechnologies.delvis.ui.shopProductsCategoryList.ProductListFragment"
+        android:label="fragment_product_list"
+        tools:layout="@layout/fragment_product_list" >
+        <argument
+            android:name="productCategory"
+            app:argType="string" />
     </fragment>
 </navigation>

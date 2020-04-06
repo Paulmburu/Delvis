@@ -11,6 +11,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 
 import com.polotechnologies.delvis.R
 import com.polotechnologies.delvis.databinding.FragmentProductCategoryBinding
@@ -53,7 +54,9 @@ class ProductCategoryFragment : Fragment(), SearchView.OnQueryTextListener {
 
     private fun setObservers() {
         mViewModel.selectedProductCategory.observe(viewLifecycleOwner, Observer {productCategory->
-
+            val action = ProductCategoryFragmentDirections
+                .actionProductCategoryFragmentToProductListFragment(productCategory.category_name)
+            activity!!.findNavController(R.id.nav_host_main).navigate(action)
         })
     }
 
@@ -73,11 +76,11 @@ class ProductCategoryFragment : Fragment(), SearchView.OnQueryTextListener {
     }
 
     override fun onQueryTextSubmit(query: String?): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return false
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return false
     }
 
 }

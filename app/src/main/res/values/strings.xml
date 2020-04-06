@@ -26,7 +26,8 @@
     <string name="menu_sign_out">Sign Out</string>
     <string name="category_gas">Gas</string>
     <string name="menu_home">Home</string>
-    <string name="menu_search_in_drinks">Search in Drinks...</string>
+    <string name="menu_search_in_drinks">Search in Drinks…</string>
     <string name="product_whiskey">Whiskey</string>
+
 
 </resources>
