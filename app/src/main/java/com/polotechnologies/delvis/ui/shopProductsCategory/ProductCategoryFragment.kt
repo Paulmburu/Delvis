@@ -20,7 +20,7 @@ import com.polotechnologies.delvis.databinding.FragmentProductCategoryBinding
  * A simple [Fragment] to display selected products
  * available in the shop.
  */
-class ProductCategoryFragment : Fragment(), SearchView.OnQueryTextListener {
+class ProductCategoryFragment : Fragment(){
 
     private lateinit var mBinding: FragmentProductCategoryBinding
     private lateinit var mViewModel: ProductCategoryViewModel
@@ -34,7 +34,6 @@ class ProductCategoryFragment : Fragment(), SearchView.OnQueryTextListener {
         val factory = ProductCategoryViewModelFactory()
         mViewModel = ViewModelProvider(this,factory)[ProductCategoryViewModel::class.java]
 
-        inflateSearchMenu()
         setDisplayDetails()
         setObservers()
         return mBinding.root
@@ -58,29 +57,6 @@ class ProductCategoryFragment : Fragment(), SearchView.OnQueryTextListener {
                 .actionProductCategoryFragmentToProductListFragment(productCategory.category_name)
             activity!!.findNavController(R.id.nav_host_main).navigate(action)
         })
-    }
-
-    private fun inflateSearchMenu() {
-        val toolbar = mBinding.toolbarProductCategory
-        val searchManager = context!!.getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        val searchView = toolbar.menu.findItem(R.id.action_search).actionView as SearchView
-
-        searchView.apply {
-            setSearchableInfo(searchManager.getSearchableInfo(activity!!.componentName))
-            setOnQueryTextListener(this@ProductCategoryFragment)
-            setIconifiedByDefault(true)
-            isSubmitButtonEnabled = false
-            isIconified = false
-        }
-
-    }
-
-    override fun onQueryTextSubmit(query: String?): Boolean {
-        return false
-    }
-
-    override fun onQueryTextChange(newText: String?): Boolean {
-        return false
     }
 
 }

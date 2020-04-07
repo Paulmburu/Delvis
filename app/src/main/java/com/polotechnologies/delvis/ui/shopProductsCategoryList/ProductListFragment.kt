@@ -30,4 +30,5 @@ class ProductListFragment : Fragment() {
         return mBinding.root
     }
 
+
 }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="product"
+            type="com.polotechnologies.delvis.dataModels.Product" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_product"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/vodka_ciroc_vodka_1000ml"
+            imageProduct="@{product.image_src}"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_product_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            tools:text="Ciroc Vodka 1000ml"
+            app:layout_constraintEnd_toEndOf="@+id/image_product"
+            app:layout_constraintStart_toStartOf="@+id/image_product"
+            app:layout_constraintTop_toBottomOf="@+id/image_product"
+            android:text="@{product.name}"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_product_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            tools:text="KSH1000"
+            app:layout_constraintEnd_toEndOf="@+id/text_product_name"
+            app:layout_constraintStart_toStartOf="@+id/text_product_name"
+            app:layout_constraintTop_toBottomOf="@+id/text_product_name"
+            android:text="@{product.price}"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

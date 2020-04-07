@@ -26,7 +26,8 @@ class HomeFragment : Fragment() {
         mBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_home, container, false)
 
         if(!isLocationSet()){
-            activity!!.findNavController(R.id.nav_host_main).navigate(R.id.action_homeHostFragment_to_locationSetUpFragment)
+            activity!!.findNavController(R.id.nav_host_main)
+                .navigate(R.id.action_homeHostFragment_to_locationSetUpFragment)
         }
 
         setClickListeners()

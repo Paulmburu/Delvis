@@ -11,7 +11,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
 import com.polotechnologies.delvis.R
-import com.polotechnologies.delvis.dataModels.Shop
 import com.polotechnologies.delvis.databinding.FragmentShopBinding
 
 /**
@@ -26,52 +25,74 @@ class ShopFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        mBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_shop, container, false)
+        mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_shop, container, false)
 
         val factory = ShopViewModelFactory()
-        mViewModel = ViewModelProvider(this,factory)[ShopViewModel::class.java]
+        mViewModel = ViewModelProvider(this, factory)[ShopViewModel::class.java]
 
         setDisplayDetails()
         setObservers()
         return mBinding.root
     }
+
     private fun setDisplayDetails() {
-        when(ShopFragmentArgs.fromBundle(arguments!!).category){
-            "supermarket"->{
-                mBinding.collapseToolbarShop.title = "Shopping"
-                displayImage(R.drawable.illustration_supermarket_neoonbrand)
+        when (ShopFragmentArgs.fromBundle(arguments!!).category) {
+            "supermarket" -> {
+                displayShopDetails(
+                    R.drawable.illustration_supermarket_neoonbrand,
+                    "Shopping",
+                    "Tuskeys Supermarket"
+                )
             }
-            "pharmacy"->{
-                mBinding.collapseToolbarShop.title = "Pharmacy"
-                displayImage(R.drawable.illustration_pharmacy_image)
+            "pharmacy" -> {
+                displayShopDetails(
+                    R.drawable.illustration_pharmacy_image,
+                    "Pharmacy",
+                    "Kiokos Wines and Spirit"
+                )
             }
-            "drinks"->{
-                mBinding.collapseToolbarShop.title = "Liquor Store"
-                displayImage(R.drawable.illustration_liquor_by_chettersnap)
+            "drinks" -> {
+                displayShopDetails(
+                    R.drawable.illustration_liquor_by_chettersnap,
+                    "Liquor Store",
+                    "Kiokos Wines and Spirit"
+                )
                 mBinding.recyclerShop.adapter = ShopRecyclerAdapter(mViewModel.drinkShop,
-                    ShopRecyclerAdapter.OnClickListener{shop->
+                    ShopRecyclerAdapter.OnClickListener { shop ->
                         mViewModel.displaySelectedCategory(shop)
-                })
+                    })
             }
-            "groceries"->{
+            "groceries" -> {
                 mBinding.collapseToolbarShop.title = "Groceries"
-                displayImage(R.drawable.illustration_groceries_scottiewarman)
+                displayShopDetails(
+                    R.drawable.illustration_groceries_scottiewarman,
+                    "Groceries",
+                    "Kwa Mama Jere Groceries"
+                )
             }
-            "gas"->{
+            "gas" -> {
                 mBinding.collapseToolbarShop.title = "Gas"
-                displayImage(R.drawable.illustration_gas_cylinders)
+                displayShopDetails(
+                    R.drawable.illustration_gas_cylinders,
+                    "Gas",
+                    "Gas Mart"
+                )
             }
         }
     }
 
     private fun setObservers() {
-        mViewModel.selectedShopCategory.observe(viewLifecycleOwner, Observer {shop->
-            val action = ShopFragmentDirections.actionShopFragmentToProductCategoryFragment(shop.shop_name)
+        mViewModel.selectedShopCategory.observe(viewLifecycleOwner, Observer { shop ->
+            val action =
+                ShopFragmentDirections.actionShopFragmentToProductCategoryFragment(shop.shop_name)
             activity!!.findNavController(R.id.nav_host_main).navigate(action)
         })
     }
 
-    private fun displayImage(imageDrawable: Int) {
+    private fun displayShopDetails(imageDrawable: Int, shopCategory: String, shopName: String) {
+        mBinding.collapseToolbarShop.title = shopCategory
+        mBinding.textShopName.text = shopName
+
         Glide.with(this)
             .load(imageDrawable)
             .into(mBinding.imageIllustration)

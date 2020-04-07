@@ -16,3 +16,13 @@ fun bind(imageView : AppCompatImageView, imageResource: Int){
             .clearOnDetach()
     }
 }
+
+@BindingAdapter("imageProduct")
+fun bind(imageView : AppCompatImageView, imageUrl: String){
+    imageUrl.let{
+        Glide.with(imageView.context)
+            .load(imageUrl)
+            .into(imageView)
+            .clearOnDetach()
+    }
+}

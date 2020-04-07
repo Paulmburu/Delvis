@@ -95,8 +95,8 @@
         <action
             android:id="@+id/action_shopFragment_to_productCategoryFragment"
             app:destination="@id/productCategoryFragment"
-            app:launchSingleTop="true"
-            app:popUpTo="@id/shopFragment" />
+            app:popUpTo="@id/shopFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/productCategoryFragment"
@@ -109,7 +109,8 @@
         <action
             android:id="@+id/action_productCategoryFragment_to_productListFragment"
             app:destination="@id/productListFragment"
-            app:popUpTo="@id/productCategoryFragment" />
+            app:popUpTo="@id/productCategoryFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/productListFragment"
